@@ -1,35 +1,44 @@
 ### 1. Testing POST /faucet/fund
 
 URL: `http://localhost:8000/faucet/fund/`
-Headers:
+
    ```
-   Key: Content-Type
-   Value: application/json
+   Headers:
+
+    Key: Content-Type
+    Value: application/json
+   
    ```
+
 Body:
-   - "raw"
-   - "JSON"
-   - JSON payload:
    ```json
+    -raw
+    -JSON
+    -JSON payload:
    {
        "wallet_address": "0xYourWalletAddressHere"
    }
    ```
 
 **Expected Responses:**
+
 - Success (200 OK):
+
   ```json
   {
       "tx_hash": "0x123...abc"
   }
   ```
+
 - Rate Limit Exceeded (429 Too Many Requests):
   ```json
   {
       "error": "Rate limit exceeded"
   }
   ```
+
 - Invalid Wallet (400 Bad Request):
+
   ```json
   {
       "error": "Invalid wallet address"
