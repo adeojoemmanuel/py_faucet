@@ -12,7 +12,6 @@ URL: `http://localhost:8000/faucet/fund/`
 
 Body:
    ```json
-    JSON payload:
     {
        "wallet_address": "0xYourWalletAddressHere"
     }

@@ -6,9 +6,10 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # Install system dependencies required for Python packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
     python3-dev \
+    gcc \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
@@ -16,4 +17,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "faucet_project.wsgi"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

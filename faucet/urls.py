@@ -16,12 +16,13 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.views.generic import TemplateView
 from faucet import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('faucet/fund/', views.FundView.as_view()),
-    path('faucet/stats/', views.StatsView.as_view()),
-    path('', views.TemplateView.as_view(template_name='faucet/index.html')),
+    path('faucet/fund/', views.fund),  # Direct reference to function
+    path('faucet/stats/', views.stats),  # Direct reference to function
+    path('', views.IndexView.as_view(), name='index'),
 ]

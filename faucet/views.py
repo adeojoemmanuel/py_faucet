@@ -1,6 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from django.views.generic import TemplateView
 from .utils import check_rate_limit
 from .web3_client import send_eth
 from .models import Transaction
@@ -8,6 +9,7 @@ import datetime
 
 @api_view(['POST'])
 def fund(request):
+    # Your existing fund function remains unchanged
     wallet_address = request.data.get('wallet_address')
     ip = request.META.get('REMOTE_ADDR')
     
@@ -40,6 +42,7 @@ def fund(request):
 
 @api_view(['GET'])
 def stats(request):
+    # Your existing stats function remains unchanged
     yesterday = datetime.datetime.now() - datetime.timedelta(days=1)
     
     stats = {
@@ -54,3 +57,6 @@ def stats(request):
     }
     
     return Response(stats)
+
+class IndexView(TemplateView):
+    template_name = 'faucet/index.html'
