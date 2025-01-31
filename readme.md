@@ -80,6 +80,7 @@ URL: `http://localhost:8000/faucet/stats/`
   docker-compose logs web
   ```
 
-Remember to fund your sender wallet first using a Sepolia faucet like:
-- https://sepoliafaucet.com/
-- https://faucet.quicknode.com/ethereum/sepolia
+fund our wallet if you have more than enough '0x31c0805823110670c63E4CAA0Dea0c659f15E5A0':
+
+- [https://cloud.google.com/application/web3/faucet/ethereum/sepolia](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
+- [https://www.ethereumsepoliafaucet.com/](https://www.ethereumsepoliafaucet.com/)
