@@ -1,3 +1,5 @@
+# start by creating a .env file using the .env.example temlpate
+
 ### 1. Testing POST /faucet/fund
 # type  **POST**
 URL: `http://localhost:8000/faucet/fund/`
