@@ -5,12 +5,8 @@ services:
     build: .
     ports:
       - "8000:8000"
-    environment:
-      - SECRET_KEY=django-insecure-_!f51pkw$4guwbpt)-ac7-39+la9*@rb6j!v0-53z7_szi&8xm
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/faucet
-      - WEB3_PROVIDER_URL=https://sepolia.infura.io/v3/100ce7ff2b694cf28bc062313e048bf0
-      - SENDER_PRIVATE_KEY=062c11ad738a4f355aa18ee97c6a4d4ac9896854083f0c3311aa069363c8a14a
-      - RATE_LIMIT_TIMEOUT=60
+    env_file:
+      - .env  # This loads the environment variables from the .env file
     depends_on:
       - db
 
