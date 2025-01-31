@@ -1,5 +1,5 @@
 ### 1. Testing POST /faucet/fund
-# type  **GET**
+# type  **POST**
 URL: `http://localhost:8000/faucet/fund/`
 
    ```
