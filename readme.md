@@ -1,5 +1,5 @@
 ### 1. Testing POST /faucet/fund
-
+# type  **GET**
 URL: `http://localhost:8000/faucet/fund/`
 
    ```
@@ -44,7 +44,7 @@ Body:
 
 ### 2. Testing GET /faucet/stats
 
-type  **GET**
+# type  **GET**
 URL: `http://localhost:8000/faucet/stats/`
 
 **Expected Response (200 OK):**
