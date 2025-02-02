@@ -11,15 +11,16 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+from urllib.parse import urlparse
 import os
 from web3 import Web3
 
-SEPOLIA_RPC_URL = os.getenv('SEPOLIA_RPC_URL', 'https://rpc.sepolia.org')
-FAUCET_WALLET_PRIVATE_KEY = os.getenv('FAUCET_WALLET_PRIVATE_KEY')
+WEB3_PROVIDER_URL = os.getenv('WEB3_PROVIDER_URL', 'https://rpc.sepolia.org')
+SENDER_PRIVATE_KEY = os.getenv('SENDER_PRIVATE_KEY')
 FAUCET_WALLET_ADDRESS = os.getenv('FAUCET_WALLET_ADDRESS')
+WEB3_PROVIDER_URL= os.getenv('WEB3_PROVIDER_URL')
 
-web3 = Web3(Web3.HTTPProvider(SEPOLIA_RPC_URL))
+web3 = Web3(Web3.HTTPProvider(WEB3_PROVIDER_URL))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,9 +81,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'faucet_project.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# settings.py
 
 DATABASES = {
     'default': {
@@ -90,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -133,14 +131,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# faucet_project/settings.py
-# TEMPLATES = [
-#     {
-#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#         'DIRS': [BASE_DIR / 'faucet/templates'],
-#         # ...
-#     }
-# ]
 
 CACHES = {
     "default": {
